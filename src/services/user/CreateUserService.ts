@@ -11,7 +11,7 @@ interface UserRequest {
 class CreateUserService {
   async execute({ name, email, password }: UserRequest) {
     if (!email) {
-      throw new AppError("Necessario um email para cadrasto! ", 401);
+      throw new AppError("Necessario um email para cadastro! ", 401);
     }
 
     const userExists = await prisma.user.findFirst({
@@ -38,9 +38,7 @@ class CreateUserService {
         email: true,
       },
     });
-    return {
-      Create,
-    };
+    return Create;
   }
 }
 
